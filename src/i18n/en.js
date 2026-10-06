@@ -14,6 +14,7 @@ export default {
   'btn.loadReq': 'Load requirements.json',
   'btn.loadSample': 'Load Sample Pack',
   'btn.chooseFiles': 'Choose PDF files',
+  'btn.loadSamplePdfs': 'Load Sample PDFs',
   'upload.drop': 'Drag and drop PDF files here, or click to browse',
   'upload.hint': 'Only valid PDF files accepted. Max 30 files, 50 MB total.',
   'btn.remove': 'Remove',

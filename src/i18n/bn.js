@@ -14,6 +14,7 @@ export default {
   'btn.loadReq': 'requirements.json লোড করুন',
   'btn.loadSample': 'নমুনা প্যাক লোড করুন',
   'btn.chooseFiles': 'পিডিএফ ফাইল বাছাই করুন',
+  'btn.loadSamplePdfs': 'নমুনা পিডিএফ লোড করুন',
   'upload.drop': 'পিডিএফ ফাইল এখানে টেনে আনুন, অথবা ব্রাউজ করতে ক্লিক করুন',
   'upload.hint': 'শুধুমাত্র সঠিক পিডিএফ ফাইল অনুমোদিত। সর্বোচ্চ ৩০টি ফাইল, মোট ৫০ মেগাবাইট।',
   'btn.remove': 'মুছুন',

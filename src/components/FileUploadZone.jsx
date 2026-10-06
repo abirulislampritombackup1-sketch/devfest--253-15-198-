@@ -103,6 +103,38 @@ export default function FileUploadZone({
   }
 
   const totalSize = files.reduce((acc, f) => acc + f.size, 0)
+  const [loadingSamples, setLoadingSamples] = useState(false)
+
+  const handleLoadSamplePdfs = async () => {
+    setLoadingSamples(true)
+    const sampleFileNames = [
+      'Technical_Proposal.pdf',
+      'Financial_Proposal.pdf',
+      'Bank_Solvency_Certificate.pdf',
+      'TIN_Certificate.pdf',
+      'VAT_Registration_Certificate.pdf',
+      'Bank_Solvency_Copy.pdf'
+    ]
+
+    try {
+      const loadedFiles = []
+      for (const fileName of sampleFileNames) {
+        const res = await fetch(`/sample-pack/documents/${fileName}`)
+        if (!res.ok) continue
+        const blob = await res.blob()
+        const file = new File([blob], fileName, { type: 'application/pdf' })
+        loadedFiles.push(file)
+      }
+
+      if (loadedFiles.length > 0) {
+        await processFileList(loadedFiles)
+      }
+    } catch (err) {
+      console.error('Failed to load sample PDFs:', err)
+    } finally {
+      setLoadingSamples(false)
+    }
+  }
 
   return (
     <div className="section-card">
@@ -129,6 +161,20 @@ export default function FileUploadZone({
               <path d="M12 5v14M5 12h14"></path>
             </svg>
             <span>{t('btn.chooseFiles')}</span>
+          </button>
+          <button 
+            type="button" 
+            className="btn btn-outline"
+            disabled={loadingSamples}
+            onClick={handleLoadSamplePdfs}
+            title="Load sample PDFs into the upload list"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <span>{loadingSamples ? '...' : t('btn.loadSamplePdfs')}</span>
           </button>
         </div>
       </div>
