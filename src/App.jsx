@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Header from './components/Header.jsx'
 import NoticeList from './components/NoticeList.jsx'
 import TenderDetailsCard from './components/TenderDetailsCard.jsx'
@@ -18,6 +18,28 @@ import { PDFDocument } from 'pdf-lib'
 
 export default function App() {
   const { lang, t } = useLang()
+
+  // Theme state (Night mode / Day mode)
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem('theme')
+      if (saved === 'dark' || saved === 'light') return saved
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    } catch {
+      return 'light'
+    }
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    try {
+      localStorage.setItem('theme', theme)
+    } catch {}
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark')
+  }
 
   // State
   const [tender, setTender] = useState(null)
@@ -215,7 +237,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-      <Header />
+      <Header theme={theme} onToggleTheme={toggleTheme} />
 
       <NoticeList 
         notices={notices} 

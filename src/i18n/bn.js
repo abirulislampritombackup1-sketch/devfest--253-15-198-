@@ -3,6 +3,9 @@ export default {
   'app.title': 'টেন্ডার ডকুমেন্ট প্যাকেজ বিল্ডার',
   'app.subtitle': 'অফিসিয়াল টেন্ডার সাবমিশন প্যাকেজ একত্রিত, যাচাই এবং প্রস্তুত করুন',
   'lang.switch': 'ভাষা',
+  'theme.toggle': 'নাইট/ডে মোড পরিবর্তন',
+  'theme.dark': 'নাইট মোড',
+  'theme.light': 'ডে মোড',
 
   // Workflow Steps
   'step.tender': '১. টেন্ডারের চাহিদা লোড করুন',

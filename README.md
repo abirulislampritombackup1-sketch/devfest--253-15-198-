@@ -31,6 +31,7 @@ All processing happens in the browser. No backend, no uploads to any server.
 - [x] Handle bad files safely (clear messages for damaged, password-protected, or non-PDF files)
 - [x] Auto-match by file name (token-based suggestions user can apply with one click)
 - [x] Export checklist CSV (with UTF-8 BOM for flawless Excel and Bengali display)
+- [x] Sleek Night Mode / Day Mode toggle with localStorage persistence
 
 ## Known problems
 - None known

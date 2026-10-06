@@ -3,6 +3,9 @@ export default {
   'app.title': 'Tender Document Package Builder',
   'app.subtitle': 'Assemble, validate, and compile official tender submission packages',
   'lang.switch': 'Language',
+  'theme.toggle': 'Toggle night/day mode',
+  'theme.dark': 'Night mode',
+  'theme.light': 'Day mode',
 
   // Workflow Steps
   'step.tender': '1. Load tender requirements',
